@@ -1,21 +1,25 @@
 import 'package:flutter/material.dart';
 import 'core/theme/app_theme.dart';
-import 'features/welcome/welcome_screen.dart';
+import 'features/dashboard/main_dashboard.dart';
 
 void main() {
-  runApp(const DigitalProductApp());
+  runApp(const VidaPlusApp());
 }
 
-class DigitalProductApp extends StatelessWidget {
-  const DigitalProductApp({super.key});
+class VidaPlusApp extends StatelessWidget {
+  const VidaPlusApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Digital Product Creator',
+      title: 'Vida+ IA',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.lightTheme,
-      home: const WelcomeScreen(),
+      // Ensure routing is safe for web previews
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const MainDashboard(),
+      },
     );
   }
 }
